@@ -205,6 +205,8 @@ const cn = {
       IsChecking: "正在检查更新...",
       FoundUpdate: (x: string) => `发现新版本：${x}`,
       GoToUpdate: "前往更新",
+      Success: "更新成功！",
+      Failed: "更新失败",
     },
     SendKey: "发送键",
     Theme: "主题",
@@ -460,6 +462,28 @@ const cn = {
           SubTitle: "样例：",
         },
       },
+      XAI: {
+        ApiKey: {
+          Title: "接口密钥",
+          SubTitle: "使用自定义XAI API Key",
+          Placeholder: "XAI API Key",
+        },
+        Endpoint: {
+          Title: "接口地址",
+          SubTitle: "样例：",
+        },
+      },
+      ChatGLM: {
+        ApiKey: {
+          Title: "接口密钥",
+          SubTitle: "使用自定义 ChatGLM API Key",
+          Placeholder: "ChatGLM API Key",
+        },
+        Endpoint: {
+          Title: "接口地址",
+          SubTitle: "样例：",
+        },
+      },
       Stability: {
         ApiKey: {
           Title: "接口密钥",
@@ -536,6 +560,39 @@ const cn = {
       Speed: {
         Title: "速度",
         SubTitle: "生成语音的速度",
+      },
+    },
+    Realtime: {
+      Enable: {
+        Title: "实时聊天",
+        SubTitle: "开启实时聊天功能",
+      },
+      Provider: {
+        Title: "模型服务商",
+        SubTitle: "切换不同的服务商",
+      },
+      Model: {
+        Title: "模型",
+        SubTitle: "选择一个模型",
+      },
+      ApiKey: {
+        Title: "API Key",
+        SubTitle: "API Key",
+        Placeholder: "API Key",
+      },
+      Azure: {
+        Endpoint: {
+          Title: "接口地址",
+          SubTitle: "接口地址",
+        },
+        Deployment: {
+          Title: "部署名称",
+          SubTitle: "部署名称",
+        },
+      },
+      Temperature: {
+        Title: "随机性 (temperature)",
+        SubTitle: "值越大，回复越随机",
       },
     },
   },
