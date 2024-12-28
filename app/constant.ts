@@ -233,6 +233,8 @@ export const XAI = {
 export const ChatGLM = {
   ExampleEndpoint: CHATGLM_BASE_URL,
   ChatPath: "api/paas/v4/chat/completions",
+  ImagePath: "api/paas/v4/images/generations",
+  VideoPath: "api/paas/v4/videos/generations",
 };
 
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
@@ -291,6 +293,22 @@ export const DEFAULT_TTS_VOICES = [
   "shimmer",
 ];
 
+export const VISION_MODEL_REGEXES = [
+  /vision/,
+  /gpt-4o/,
+  /claude-3/,
+  /gemini-1\.5/,
+  /gemini-exp/,
+  /gemini-2\.0/,
+  /learnlm/,
+  /qwen-vl/,
+  /qwen2-vl/,
+  /gpt-4-turbo(?!.*preview)/, // Matches "gpt-4-turbo" but not "gpt-4-turbo-preview"
+  /^dall-e-3$/, // Matches exactly "dall-e-3"
+];
+
+export const EXCLUDE_VISION_MODEL_REGEXES = [/claude-3-5-haiku-20241022/];
+
 const openaiModels = [
   "gpt-3.5-turbo",
   "gpt-3.5-turbo-1106",
@@ -317,13 +335,23 @@ const openaiModels = [
 ];
 
 const googleModels = [
-  "gemini-1.0-pro",
+  "gemini-1.0-pro", // Deprecated on 2/15/2025
   "gemini-1.5-pro-latest",
+  "gemini-1.5-pro",
+  "gemini-1.5-pro-002",
+  "gemini-1.5-pro-exp-0827",
   "gemini-1.5-flash-latest",
+  "gemini-1.5-flash-8b-latest",
+  "gemini-1.5-flash",
+  "gemini-1.5-flash-8b",
+  "gemini-1.5-flash-002",
+  "gemini-1.5-flash-exp-0827",
+  "learnlm-1.5-pro-experimental",
   "gemini-exp-1114",
   "gemini-exp-1121",
-  "learnlm-1.5-pro-experimental",
-  "gemini-pro-vision",
+  "gemini-exp-1206",
+  "gemini-2.0-flash-exp",
+  "gemini-2.0-flash-thinking-exp-1219",
 ];
 
 const anthropicModels = [
@@ -405,6 +433,15 @@ const chatglmModels = [
   "glm-4-long",
   "glm-4-flashx",
   "glm-4-flash",
+  "glm-4v-plus",
+  "glm-4v",
+  "glm-4v-flash", // free
+  "cogview-3-plus",
+  "cogview-3",
+  "cogview-3-flash", // free
+  // 目前无法适配轮询任务
+  //   "cogvideox",
+  //   "cogvideox-flash", // free
 ];
 
 let seq = 1000; // 内置的模型序号生成器从1000开始
@@ -560,11 +597,6 @@ export const internalAllowedWebDavEndpoints = [
 ];
 
 export const DEFAULT_GA_ID = "G-89WN60ZK2E";
-export const PLUGINS = [
-  { name: "Plugins", path: Path.Plugins },
-  { name: "Stable Diffusion", path: Path.Sd },
-  { name: "Search Chat", path: Path.SearchChat },
-];
 
 export const SAAS_CHAT_URL = "https://nextchat.dev/chat";
 export const SAAS_CHAT_UTM_URL = "https://nextchat.dev/chat?utm=github";
